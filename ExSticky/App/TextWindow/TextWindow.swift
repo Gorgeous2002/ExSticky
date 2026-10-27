@@ -95,8 +95,6 @@ class TextWindow: NSWindow {
 
     public func setColor(_ color: NSColor) {
         self.backgroundColor = color
-        self.view.textView.selectedTextAttributes = [
-            NSAttributedString.Key.backgroundColor: color,
-        ]
+        self.view.updateSelectionAppearance(noteColor: color, isActive: isKeyWindow)
     }
 }
