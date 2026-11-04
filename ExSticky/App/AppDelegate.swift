@@ -256,28 +256,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func ClickMenu_Edit_Move_MoveLineUp(_: Any) {
         XCLog(.trace)
         guard let current_window = NSApp.keyWindow as? TextWindow else { return }
-        current_window.view.textView.moveLineUp()
+        current_window.view.editingCommand("moveUp") { $0.moveLineUp() }
     }
 
     @objc
     private func ClickMenu_Edit_Move_MoveLineDown(_: Any) {
         XCLog(.trace)
         guard let current_window = NSApp.keyWindow as? TextWindow else { return }
-        current_window.view.textView.moveLineDown()
+        current_window.view.editingCommand("moveDown") { $0.moveLineDown() }
     }
 
     @objc
     private func ClickMenu_Edit_Move_IndentLine(_: Any) {
         XCLog(.trace)
         guard let current_window = NSApp.keyWindow as? TextWindow else { return }
-        current_window.view.textView.indentLine()
+        current_window.view.editingCommand("indent") { $0.indentLine() }
     }
 
     @objc
     private func ClickMenu_Edit_Move_OutdentLine(_: Any) {
         XCLog(.trace)
         guard let current_window = NSApp.keyWindow as? TextWindow else { return }
-        current_window.view.textView.outdentLine()
+        current_window.view.editingCommand("outdent") { $0.outdentLine() }
     }
 
     // MARK: Menu > Edit > Markdown
@@ -286,7 +286,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func ClickMenu_Edit_Markdown_ToggleUnorderedList(_: Any) {
         XCLog(.trace)
         guard let current_window = NSApp.keyWindow as? TextWindow else { return }
-        current_window.view.textView.toggleUnorderedList()
+        current_window.view.editingCommand("bullet") { $0.toggleUnorderedList() }
     }
 
     // MARK: Menu > Window > Set Color

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        A10100000000000000000001 /* MarkdownEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100000000000000000002; };
+        A10100000000000000000003 /* Markdown in Resources */ = {isa = PBXBuildFile; fileRef = A10100000000000000000004; };
 		480C6C2627F0FAC200028C65 /* PreferenceWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C6C2327F0FAC200028C65 /* PreferenceWC.swift */; };
 		480C6C2727F0FAC200028C65 /* AppearancePreferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C6C2527F0FAC200028C65 /* AppearancePreferenceVC.swift */; };
 		480C6C2827F0FAC200028C65 /* BehaviorPreferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C6C2427F0FAC200028C65 /* BehaviorPreferenceVC.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+        A10100000000000000000002 /* MarkdownEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditor.swift; sourceTree = "<group>"; };
+        A10100000000000000000004 /* Markdown */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Markdown; sourceTree = "<group>"; };
 		480C6C2227F0FAC200028C65 /* TextPreferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPreferenceVC.swift; sourceTree = "<group>"; };
 		480C6C2327F0FAC200028C65 /* PreferenceWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWC.swift; sourceTree = "<group>"; };
 		480C6C2427F0FAC200028C65 /* BehaviorPreferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorPreferenceVC.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		480C6BFB27F0D8CB00028C65 /* TextWindow */ = {
 			isa = PBXGroup;
 			children = (
+				A10100000000000000000002 /* MarkdownEditor.swift */,
 				48257E2627F5F31A008B8559 /* TextWC.swift */,
 				482A99A627F052E8004D16EE /* TextWindow.swift */,
 				4825E4D5284B79990051D6D5 /* TextWindowDelegate.swift */,
@@ -122,6 +127,7 @@
 				48A10A2227F2061000303EC8 /* DataStructure */,
 				48CFAF4627F510F5005C9D14 /* User */,
 				482A99AC27F05CA3004D16EE /* Extension */,
+				A10100000000000000000004 /* Markdown */,
 				482A999B27F0527C004D16EE /* Assets.xcassets */,
 				482A999D27F0527C004D16EE /* MainMenu.xib */,
 				48164C6D27F07CC200145E13 /* Info.plist */,
@@ -238,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10100000000000000000003 /* Markdown in Resources */,
 				482A999C27F0527C004D16EE /* Assets.xcassets in Resources */,
 				488D64EA27F338B4003578EB /* InfoPlist.strings in Resources */,
 				DE9D05492F72C95F007F244E /* Localizable.xcstrings in Resources */,
@@ -268,6 +275,7 @@
 				48CFAF4527F50BC0005C9D14 /* ExStickyHistory.swift in Sources */,
 				480C6C2927F0FAC200028C65 /* TextPreferenceVC.swift in Sources */,
 				482A99A927F052F6004D16EE /* TextView.swift in Sources */,
+				A10100000000000000000001 /* MarkdownEditor.swift in Sources */,
 				482A999A27F05279004D16EE /* AppDelegate.swift in Sources */,
 				48A10A2127F205FB00303EC8 /* ExStickyEnums.swift in Sources */,
 				480C6C2827F0FAC200028C65 /* BehaviorPreferenceVC.swift in Sources */,
@@ -433,7 +441,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20260410;
+				CURRENT_PROJECT_VERSION = 2026110407;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -448,7 +456,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2026.4.10;
+				MARKETING_VERSION = 2026.11.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yangxijie.exsticky.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -465,7 +473,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20260410;
+				CURRENT_PROJECT_VERSION = 2026110407;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -480,7 +488,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2026.4.10;
+				MARKETING_VERSION = 2026.11.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yangxijie.exsticky.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -41,7 +41,15 @@ class TextWindow: NSWindow {
         }
     }
 
+    private var isClosing = false
+
     override func close() {
+        guard !isClosing else { return }
+        isClosing = true
+        view.flushMarkdown { [weak self] in self?.saveAndClose() }
+    }
+
+    private func saveAndClose() {
         XCLog(.trace)
 
         let string = view.textView.string
