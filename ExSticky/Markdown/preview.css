@@ -1,0 +1,42 @@
+:root { color-scheme: light dark; }
+html, body { background: transparent; margin: 0; }
+body { color: CanvasText; }
+main { padding: 4px 5px 12px; line-height: 1.25; overflow-wrap: anywhere; }
+main > :first-child { margin-top: 0; }
+p, ul, ol { margin: 0; }
+blockquote, pre, table { margin: 0.4em 0; }
+ul, ol { padding-left: 1.7em; }
+li > p { margin: 0; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 0.8em 0 0.4em; }
+h1 { font-size: 1.6em; } h2 { font-size: 1.35em; } h3 { font-size: 1.15em; }
+blockquote { border-left: 3px solid GrayText; padding-left: 0.7em; margin-left: 0; }
+pre, code { background: rgb(128 128 128 / 15%); border-radius: 4px; }
+code { font-size: 0.85em; padding: 0.1em 0.2em; }
+pre { padding: 0.6em; overflow: auto; } pre code { padding: 0; background: none; }
+table { border-collapse: collapse; display: block; overflow-x: auto; }
+th, td { border: 1px solid GrayText; padding: 0.25em 0.5em; }
+a { color: LinkText; } .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.2em 0; }
+/* Ordered list markers follow structural depth, independent of source numbers. */
+.ProseMirror ol { list-style-type: none; list-style-position: inside; padding: 0; margin: 0; }
+/* Keep markers at the text edge without a hanging indent or a fixed marker column.
+   Nested levels add one compact indent while markers touch the following text without an extra spacer. */
+/* Separate generated numbering from the editable paragraph. Inline empty
+   paragraphs let WebKit paint the caret before the preceding pseudo-element. */
+.ProseMirror ol > li { display: grid; counter-increment: list-item; grid-template-columns: max-content minmax(0, 1fr); column-gap: 0; }
+.ProseMirror ol > li::before { grid-column: 1; grid-row: 1; }
+.ProseMirror ol > li > * { grid-column: 1 / -1; }
+.ProseMirror ol > li > p:first-child { display: block; grid-column: 2; grid-row: 1; min-width: 0; }
+.ProseMirror ol ol { margin-left: 1em; }
+/* Use inline counters so WebKit cannot insert native marker suffix whitespace. */
+.ProseMirror ol > li::before { content: counter(list-item, decimal) "."; }
+.ProseMirror ol ol > li::before { content: counter(list-item, lower-roman) "."; }
+.ProseMirror ol ol ol > li::before { content: counter(list-item, lower-alpha) "."; }
+.ProseMirror { outline: none; white-space: pre-wrap; overflow-wrap: break-word; min-height: calc(100vh - 40px); }
+.ProseMirror p { min-height: 1.25em; }
+.ProseMirror li { position: relative; }
+.ProseMirror-selectednode { outline: 2px solid Highlight; }
+.ProseMirror .math-node { cursor: text; white-space: normal; }
+#math-editor { position: fixed; inset: auto 8px 8px; background: Canvas; color: CanvasText; padding: 10px; border: 1px solid GrayText; border-radius: 8px; box-shadow: 0 4px 20px #0003; z-index: 2; }
+#math-source { box-sizing: border-box; width: 100%; font: 14px monospace; }
+#math-preview { max-height: 160px; overflow: auto; margin: 8px 0; }
+::selection { background: var(--selection-background, Highlight); color: var(--selection-foreground, HighlightText); }

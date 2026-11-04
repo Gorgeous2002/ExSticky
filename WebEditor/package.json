@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "node checks.cjs"
+  },
+  "dependencies": {
+    "prosemirror-commands": "1.7.1",
+    "prosemirror-history": "1.4.1",
+    "prosemirror-inputrules": "1.5.0",
+    "prosemirror-keymap": "1.2.3",
+    "prosemirror-markdown": "1.13.2",
+    "prosemirror-model": "1.25.0",
+    "prosemirror-schema-list": "1.5.1",
+    "prosemirror-state": "1.4.3",
+    "prosemirror-view": "1.39.2",
+    "markdown-it": "14.1.0",
+    "katex": "0.16.22"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.5",
+    "jsdom": "26.1.0"
+  }
+}

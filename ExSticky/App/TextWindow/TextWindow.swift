@@ -41,7 +41,15 @@ class TextWindow: NSWindow {
         }
     }
 
+    private var isClosing = false
+
     override func close() {
+        guard !isClosing else { return }
+        isClosing = true
+        view.flushMarkdown { [weak self] in self?.saveAndClose() }
+    }
+
+    private func saveAndClose() {
         XCLog(.trace)
 
         let string = view.textView.string
@@ -76,8 +84,14 @@ class TextWindow: NSWindow {
             self.level = .floating
         }
 
+        // 显式参与调度中心，避免悬浮窗口采用默认的 transient 行为。
+        self.collectionBehavior = [.managed]
+
         if UserSettings.behavior.appearOnAllDesktop == true {
-            self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary] // appear on all desktops
+            self.collectionBehavior.formUnion([
+                .canJoinAllSpaces,
+                .fullScreenAuxiliary,
+            ]) // appear on all desktops
         }
 
         self.minSize = .init(width: CGFloat(C.TEXT_WINDOW_WIDTH_MIN),
@@ -95,8 +109,6 @@ class TextWindow: NSWindow {
 
     public func setColor(_ color: NSColor) {
         self.backgroundColor = color
-        self.view.textView.selectedTextAttributes = [
-            NSAttributedString.Key.backgroundColor: color,
-        ]
+        self.view.updateSelectionAppearance(noteColor: color, isActive: isKeyWindow)
     }
 }
