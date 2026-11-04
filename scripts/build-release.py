@@ -72,7 +72,7 @@ with tempfile.TemporaryDirectory(prefix='exsticky-release-build-') as temporary:
 
 run('codesign', '--force', '--sign', '-', '--entitlements', root / 'ExSticky/ExSticky.entitlements', app)
 run('codesign', '--verify', '--deep', '--strict', app)
-run('lipo', '-verify_arch', 'arm64', 'x86_64', contents / 'MacOS/ExSticky')
+run('lipo', contents / 'MacOS/ExSticky', '-verify_arch', 'arm64', 'x86_64')
 stem = 'ExSticky-' + version + '-universal'
 run('ditto', '-c', '-k', '--sequesterRsrc', '--keepParent', app, output / (stem + '.zip'))
 metadata = {
